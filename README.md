@@ -1,5 +1,31 @@
 # アプリの開発〜Webを活用して
 このページは多摩大学プロジェクトゼミナールアプリの開発〜Webを活用しての解説・補足ページです。
 
-## [04/07 授業分](./0407.md)
+# 環境構築
 
+## Eclipse
+[Eclipse 日本語化 | MergeDoc Project](http://mergedoc.sourceforge.jp/)
+
+## Chocolatey
+[Windowsで使えるパッケージマネージャ(Chocolatey)を導入してみた ｜ Developers.IO](http://dev.classmethod.jp/tool/chocolatey_for_windows/)
+
+## Chocolatey導入後
+以下のパッケージを導入してください。
+
+* Java SE
+* Node.js
+* MySQL
+* MySQL Workbench 6.2.4
+* SourceTree
+
+
+## IntelliJ(任意)
+[IntelliJ IDEA — The Most Intelligent Java IDE](https://www.jetbrains.com/idea/)
+
+JetBrain社製のIDE(統合開発環境)  
+本来は￥23,652/年しますが、  
+アカデミック利用登録(@tama.ac.jp)を行うことで無料で使えます。
+
+## アンケートサイトURL
+
+[http://52.68.27.232/](http://52.68.27.232/)
