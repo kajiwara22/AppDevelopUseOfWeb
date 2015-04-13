@@ -3,6 +3,9 @@ package demo;
 import java.io.InputStream;
 import java.util.Scanner;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ScannerCalculatorArgumentResolver implements
 		CalculatorArgumentResolver {
 
