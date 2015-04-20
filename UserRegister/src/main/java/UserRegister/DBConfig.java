@@ -1,5 +1,6 @@
 package UserRegister;
 
+import net.sf.log4jdbc.sql.jdbcapi.DataSourceSpy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
@@ -18,7 +19,7 @@ public class DBConfig {
     DataSourceProperties properties;
     DataSource dataSource;
 
-    @Bean(destroyMethod = "close")
+    @Bean
     DataSource realDataSource() {
         String url;
         String username;
@@ -31,6 +32,6 @@ public class DBConfig {
                 .driverClassName(this.properties.getDriverClassName())
                 .url(url).username(username).password(password);
         this.dataSource = factory.build();
-        return this.dataSource;
+        return new DataSourceSpy(dataSource);
     }
 }
