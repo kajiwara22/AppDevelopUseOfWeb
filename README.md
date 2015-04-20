@@ -7,10 +7,6 @@
 [04/14講義分](./02.md)
 
 
-## アンケートサイトURL
-
-[http://52.68.101.58/](http://52.68.101.58/)
-
 ## Q&Aサイト URL
 
-[http://52.68.101.58/QandA/](http://52.68.101.58/QandA/)
+[https://boiling-plateau-6509.herokuapp.com/](https://boiling-plateau-6509.herokuapp.com/)
