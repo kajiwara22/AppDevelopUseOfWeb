@@ -1,0 +1,11 @@
+spring:
+    profiles:
+        active: dev
+---
+spring:
+    profiles: dev
+    datasource:
+        url: jdbc:mysql://localhost/user_register
+        username: user_register
+        password: user_register
+        driverClassName: com.mysql.jdbc.Driver
