@@ -9,3 +9,6 @@ spring:
         username: user_register
         password: user_register
         driverClassName: com.mysql.jdbc.Driver
+    jpa:
+        hibernate:
+            ddl-auto: update
