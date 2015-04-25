@@ -14,5 +14,5 @@ import javax.persistence.Table;
 public class Student {
     @javax.persistence.Id
     private int id;
-    private String Name;
+    private String name;
 }
