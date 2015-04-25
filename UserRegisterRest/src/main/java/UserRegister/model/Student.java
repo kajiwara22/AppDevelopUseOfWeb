@@ -1,6 +1,8 @@
 package UserRegister.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -11,8 +13,10 @@ import javax.persistence.Table;
 @Data
 @Entity
 @Table
+@NoArgsConstructor
+@AllArgsConstructor
 public class Student {
     @javax.persistence.Id
     private int id;
-    private String Name;
+    private String name;
 }
