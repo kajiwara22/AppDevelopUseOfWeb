@@ -12,11 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.List;
-
-/**
- * Created by KAJIWARAYutaka on 2015/05/09.
- */
 @Controller
 @RequestMapping("/users/register")
 public class RegisterUserController {
@@ -27,13 +22,14 @@ public class RegisterUserController {
     StudentForm setupForm(){
         return new StudentForm();
     }
+
     @RequestMapping(method = RequestMethod.GET)
     public String showPage(){
         return "userRegister";
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String register(@Validated StudentForm studentForm,BindingResult result,Model model){
+    public String register(@Validated StudentForm studentForm,BindingResult result){
         if(result.hasErrors()){
             return showPage();
         }
