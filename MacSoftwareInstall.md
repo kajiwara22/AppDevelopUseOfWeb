@@ -67,12 +67,12 @@ ChocolateyのMac版な位置づけのソフトウェアになります。
 [Git、Mercurial 対応 無料 DVCS Mac、Windowsクライアント | Atlassian](https://www.atlassian.com/ja/software/sourcetree/overview)
 
 ## Eclipse
-1. MacではEclipseは以下を使います。以下のサイトよりダウンロード＆インストール
+1. MacではEclipseは以下を使います。以下のサイトよりダウンロード＆インストール  
 [Spring Tool Suite™ (STS)](https://spring.io/tools/sts)
 
 
 ## Lombok
-Githubに記載してある方法と同一です。
+Githubに記載してある方法と同一です。  
 インストールしたパスのみ、上記のSPRING TOOL SUITEのパスで読みかえてください。
 
 
