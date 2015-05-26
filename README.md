@@ -20,6 +20,10 @@
 文字化けが発生しない設定ファイルの修正版をコミットしたので、そちらを参照ください。  
 [DBへの文字化け対応](https://github.com/kajiwara22/AppDevelopUseOfWeb/commit/da4dbb179df8cd2d179a2df3363984e84abc9847)
 
+## Mavenの依存関係がおかしい。
+以下を試してみてください。  
+[Eclipse + Maven(m2e)でライブラリが見つからない的なエラーが出たときの対応方法 - Qiita](http://qiita.com/taoyag/items/8b29c819e8430bca1c6b)
+
 ## Q&Aサイト URL
 
 [https://boiling-plateau-6509.herokuapp.com/](https://boiling-plateau-6509.herokuapp.com/)
