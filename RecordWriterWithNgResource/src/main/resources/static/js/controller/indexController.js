@@ -46,11 +46,11 @@
          * 指定したレコードを編集対象とする
          * @param record 編集対象レコード
          */
-        var selectEditTargetRecord = function(record){
+        var selectEditTargetRecord = function(selectRecord){
             $scope.editRecord = true;
-            $scope.editTargetRecord = record;
-            $scope.record = record.record;
-            $scope.title = record.title;
+            recordService.record.get({'id':selectRecord.id}).$promise.then(function(record) {
+                $scope.editTargetRecord = record;
+            });
         };
 
         /**
@@ -97,9 +97,7 @@
          * レコードの更新を行う
          */
         var updateRecord = function(){
-            $scope.editTargetRecord.record = $scope.record;
-            $scope.editTargetRecord.title = $scope.title;
-            recordService.record.update($scope.editTargetRecord).$promise.then(function(){
+            $scope.editTargetRecord.$update().then(function(){
                 initRecordForm();
             });
         };
