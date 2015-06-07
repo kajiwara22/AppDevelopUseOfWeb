@@ -23,18 +23,29 @@
             }
         };
 
+        /**
+         * レコード一覧を取得する
+         */
         var getRecord = function(){
             if($location.url().match(/ajaxIndex/)){
-                $scope.records = recordService.records().query();
+                $scope.records = recordService.records.query();
             }
         };
 
+        /**
+         * 指定したレコードを削除する
+         * @param id 削除対象レコードid
+         */
         var deleteRecord = function(id){
-            recordService.record().delete({'id':id}).$promise.then(function(){
+            recordService.record.delete({'id':id}).$promise.then(function(){
                 initRecordForm();
             });
         };
 
+        /**
+         * 指定したレコードを編集対象とする
+         * @param record 編集対象レコード
+         */
         var selectEditTargetRecord = function(record){
             $scope.editRecord = true;
             $scope.editTargetRecord = record;
@@ -42,27 +53,36 @@
             $scope.title = record.title;
         };
 
+        /**
+         * レコード一覧取得の初期化処理
+         */
         var initRecordForm = function(){
             $scope.editRecord = false;
             $scope.record = '';
             $scope.title = '';
             if(angular.isDefined($scope.form) && angular.isFunction($scope.form.$setPristine)){
-                $scope.form.$setPristine();
+                $scope.form.$setPristine(); //formの状態をユーザーに操作されていない状態とする
             }
             $scope.editTargetRecord = null;
             getRecord();
         };
 
+        /**
+         * レコードの新規作成を行う
+         */
         var createRecord = function(){
             var record = {
                 'title'     :   $scope.title,
                 'record'    :   $scope.record
             };
-            recordService.createRecord().save(record).$promise.then(function(){
+            recordService.createRecord.save(record).$promise.then(function(){
                 initRecordForm();
             });
         };
 
+        /**
+         * レコード編集からレコード作成への切り替えを行う
+         */
         var releaseTargetRecord = function(){
             $scope.editRecord = false;
             $scope.record = '';
@@ -73,10 +93,13 @@
             }
         };
 
+        /**
+         * レコードの更新を行う
+         */
         var updateRecord = function(){
             $scope.editTargetRecord.record = $scope.record;
             $scope.editTargetRecord.title = $scope.title;
-            recordService.record().update($scope.editTargetRecord).$promise.then(function(){
+            recordService.record.update($scope.editTargetRecord).$promise.then(function(){
                 initRecordForm();
             });
         };
