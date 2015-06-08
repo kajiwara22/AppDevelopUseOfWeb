@@ -44,7 +44,7 @@
 
         /**
          * 指定したレコードを編集対象とする
-         * @param record 編集対象レコード
+         * @param selectRecord 編集対象レコード
          */
         var selectEditTargetRecord = function(selectRecord){
             $scope.editRecord = true;
