@@ -47,8 +47,8 @@
                                                 class="form-control"
                                                 placeholder="今日は何がありましたか？"
                                                 ng-model="title"
-                                                required="true"
-                                                ng-if="editRecord === false"
+                                                ng-required="editRecord === false"
+                                                ng-show="editRecord === false"
                                                 name="title" id="title"  type="text"/>
                                         <input
                                                 class="form-control"
@@ -71,8 +71,8 @@
                                                     class="form-control"
                                                     name="record"
                                                     ng-model="record"
-                                                    required="true"
-                                                    ng-if="editRecord === false"
+                                                    ng-required="editRecord === false"
+                                                    ng-show="editRecord === false"
                                                     id="record"
                                                     cols="30"
                                                     rows="5"
