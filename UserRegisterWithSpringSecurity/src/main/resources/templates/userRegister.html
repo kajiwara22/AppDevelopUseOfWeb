@@ -25,6 +25,13 @@
         </tr>
         <tr>
             <td>
+                <span>Password:</span>
+                <input name = "password" type="password" th:field="*{password}" th:errorclass="error-input"/>
+                <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error-message"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <input type="submit" value="登録"/>
             </td>
         </tr>

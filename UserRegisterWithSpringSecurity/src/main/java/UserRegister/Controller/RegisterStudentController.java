@@ -1,11 +1,11 @@
 package UserRegister.Controller;
 
-import UserRegister.Repository.UserRepository;
+import UserRegister.Repository.StudentRepository;
 import UserRegister.model.Student;
 import UserRegister.model.StudentForm;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/users/register")
-public class RegisterUserController {
+public class RegisterStudentController {
     @Autowired
-    UserRepository userRepository;
+    StudentRepository studentRepository;
 
     @ModelAttribute
     StudentForm setupForm(){
@@ -36,8 +36,11 @@ public class RegisterUserController {
         Student student = new Student();
         student.setId(studentForm.getId());
         student.setName(studentForm.getName());
-        userRepository.save(student);
-        return "redirect:/users";
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String password = studentForm.getPassword();
+        student.setPassword((bCryptPasswordEncoder.encode(password)));
+        studentRepository.save(student);
+        return "redirect:/";
     }
 
 }

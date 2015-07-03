@@ -5,11 +5,12 @@ spring:
 spring:
     profiles: dev
     datasource:
-        url: jdbc:mysql://localhost/user_register?characterEncoding=UTF-8
-        username: user_register
-        password: user_register
+        url: jdbc:mysql://localhost/user_register_sc?characterEncoding=UTF-8
+        username: user_register_sc
+        password: user_register_sc
         driverClassName: com.mysql.jdbc.Driver
     jpa:
         hibernate:
             ddl-auto: update
     thymeleaf.cache: false
+    security.basic.enabled: false

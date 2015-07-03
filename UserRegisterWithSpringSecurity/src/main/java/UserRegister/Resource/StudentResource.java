@@ -1,6 +1,6 @@
 package UserRegister.Resource;
 
-import UserRegister.Repository.UserRepository;
+import UserRegister.Repository.StudentRepository;
 import UserRegister.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,29 +10,29 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class UserResource {
+public class StudentResource {
     @Autowired
-    UserRepository userRepository;
+    StudentRepository studentRepository;
 
     @RequestMapping(value="students",method = RequestMethod.GET)
     List<Student> getStudentsList(){
-        return userRepository.findAll();
+        return studentRepository.findAll();
     }
 
     @RequestMapping(value="student/{id}",method = RequestMethod.GET)
-    Student getStudent(@PathVariable(value = "id")int id){
-        return userRepository.findOne(id);
+    Student getStudent(@PathVariable(value = "id")String id){
+        return studentRepository.findOne(id);
     }
 
     @RequestMapping(value = "student", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     void createStudent(@RequestBody Student student) {
-       userRepository.save(student);
+       studentRepository.save(student);
     }
 
     @RequestMapping(value = "student/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void deleteStudent(@PathVariable(value = "id")int id){
-        userRepository.delete(id);
+    void deleteStudent(@PathVariable(value = "id")String id){
+        studentRepository.delete(id);
     }
 }

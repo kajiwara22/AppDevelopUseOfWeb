@@ -5,6 +5,16 @@
     <title>トップページ</title>
 </head>
 <body>
-    <h1>表示されました。</h1>
+<form th:action="@{/}" method="post">
+    <div>
+        user:
+        <input type="text" name="user"/>
+    </div>
+    <div>
+        password:
+        <input type="password" name="password"/>
+    </div>
+    <button type="submit">ログイン</button>
+</form>
 </body>
 </html>

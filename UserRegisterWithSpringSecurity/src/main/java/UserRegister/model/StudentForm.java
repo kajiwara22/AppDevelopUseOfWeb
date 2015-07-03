@@ -14,5 +14,7 @@ public class StudentForm {
     @Size(min = 1,max= 128)
     private String name;
     @NotNull
-    private Integer id;
+    private String id;
+    @NotNull
+    private String password;
 }
