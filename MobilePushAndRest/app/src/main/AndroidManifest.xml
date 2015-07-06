@@ -15,7 +15,7 @@
     <uses-permission android:name="com.amazonaws.androidtest.permission.C2D_MESSAGE" />
 
     <permission
-            android:name="com.amazonaws.androidtest.permission.C2D_MESSAGE"
+            android:name="jp.ac.tama.mobilepushandrest.app.permission.C2D_MESSAGE"
             android:protectionLevel="signature" />
 
     <application
@@ -32,6 +32,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+                android:name="jp.ac.tama.mobilepushandrest.app.MessageReceiveService"
+                android:label="jp.ac.tama.mobilepushandrest.app.MessageReceiveService" >
+            <intent-filter>
+                <action android:name="jp.ac.tama.mobilepushandrest.app.ExternalReceiver" />
+                <category android:name="jp.ac.tama.mobilepushandrest" />
+            </intent-filter>
+        </service>
+
+        <receiver
+                android:name="jp.ac.tama.mobilepushandrest.app.ExternalReceiver"
+                android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <action android:name="com.google.android.c2dm.intent.REGISTER" />
+
+                <category android:name="jp.ac.tama.mobilepushandrest.app" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

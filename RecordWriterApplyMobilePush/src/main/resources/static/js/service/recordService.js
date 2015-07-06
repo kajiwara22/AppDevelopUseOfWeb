@@ -4,10 +4,12 @@
         var records = $resource('/api/records');
         var record =  $resource('/api/record/:id',{ 'id' : '@id' },{update:{method:'PUT'}});
         var createRecord =  $resource('/api/record/create');
+        var sns = $resource('/api/sendMessage');
         return {
             'records'       :   records,
             'record'        :   record,
-            'createRecord'  :   createRecord
+            'createRecord'  :   createRecord,
+            'sns'           :   sns
         };
     });
 }());

@@ -1,8 +1,8 @@
 package jp.ac.tama.mobilepushandrest.app.restInterface;
 
 import jp.ac.tama.mobilepushandrest.app.entity.DeviceToken;
+import retrofit.http.Body;
 import retrofit.http.PUT;
-import retrofit.http.Query;
 import rx.Observable;
 
 /**
@@ -10,5 +10,5 @@ import rx.Observable;
  */
 public interface DeviceRegisterAPI {
     @PUT("/api/deviceRegister")
-    public Observable<Boolean> register(@Query("token") DeviceToken token);
+    public Observable<Boolean> register(@Body DeviceToken token);
 }

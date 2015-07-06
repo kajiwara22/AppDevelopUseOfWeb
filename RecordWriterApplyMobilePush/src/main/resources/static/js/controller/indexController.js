@@ -102,6 +102,21 @@
             });
         };
 
+
+        /**
+         * プッシュ通知の配信を実施する
+         */
+        var sendPushMessage = function(){
+            var message = {
+                'message'     :   $scope.message
+            };
+            recordService.sns.save(message).$promise.then(function(){
+                $scope.form.$setPristine();
+                $scope.message = '';
+            });
+        };
+        $scope.sendPushMessage = sendPushMessage;
+
         $scope.lengthCheck = lengthCheck;
         $scope.deleteRecord  = deleteRecord;
         $scope.createRecord = createRecord;

@@ -39,7 +39,10 @@ public class IndexController {
         return "indexAjax";
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value="sendMessage",method = RequestMethod.GET)
+    public String showSendMessagePage(){ return "sendMessage"; }
+
+        @RequestMapping(method = RequestMethod.POST)
     public String register(@Validated RecordForm recordForm,BindingResult result){
         if(result.hasErrors()){
             return showPage(null);

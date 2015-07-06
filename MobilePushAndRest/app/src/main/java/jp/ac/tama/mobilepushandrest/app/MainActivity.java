@@ -27,9 +27,11 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(savedInstanceState == null){
+            gcm = GoogleCloudMessaging.getInstance(getBaseContext());
+            register();
+        }
         setContentView(R.layout.activity_main);
-        gcm = GoogleCloudMessaging.getInstance(getBaseContext());
-        register();
     }
 
     private void register(){
@@ -41,42 +43,42 @@ public class MainActivity extends Activity {
                 try {
                     token = gcm.register(projectNumber);
                     // JSONのパーサー
-//                    DeviceToken deviceToken = new DeviceToken();
-//                    deviceToken.deviceToken = token;
-//                    Gson gson = new GsonBuilder()
-//                            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-//                            .registerTypeAdapter(DeviceToken.class,new DeviceTokenAdapter())
-//                            .create();
-//
+                    DeviceToken deviceToken = new DeviceToken();
+                    deviceToken.deviceToken = token;
+                    Gson gson = new GsonBuilder()
+                            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                            .registerTypeAdapter(DeviceToken.class,new DeviceTokenAdapter())
+                            .create();
+
 //                    // RestAdapterの生成
-//                    RestAdapter adapter = new RestAdapter.Builder()
-//                            .setEndpoint("http://192.168.11.100:3000")
+                    RestAdapter adapter = new RestAdapter.Builder()
+                            .setEndpoint(getString(R.string.server_address))
 //                            .setConverter(new GsonConverter(gson))
-//                            .setLogLevel(RestAdapter.LogLevel.FULL)
-//                            .setLog(new AndroidLog("=NETWORK="))
-//                            .build();
-//                    adapter.create(DeviceRegisterAPI.class).register(deviceToken)
-//                            .subscribeOn(Schedulers.newThread())
-//                            .observeOn(AndroidSchedulers.mainThread())
-//                            .subscribe(new Observer<Boolean>() {
-//                                @Override
-//                                public void onCompleted() {
-//                                    Log.d("MainActivity", "onCompleted()");
-//                                }
-//
-//                                @Override
-//                                public void onError(Throwable e) {
-//                                    Log.e("MainActivity", "Error : " + e.toString());
-//                                }
-//
-//                                @Override
-//                                public void onNext(Boolean result) {
-//                                    Log.d("MainActivity", "onNext()");
-//                                    if(result){
-//                                        Log.d("MainActivity","Register successful");
-//                                    }
-//                                }
-//                            });
+                            .setLogLevel(RestAdapter.LogLevel.FULL)
+                            .setLog(new AndroidLog("=NETWORK="))
+                            .build();
+                    adapter.create(DeviceRegisterAPI.class).register(deviceToken)
+                            .subscribeOn(Schedulers.newThread())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(new Observer<Boolean>() {
+                                @Override
+                                public void onCompleted() {
+                                    Log.d("MainActivity", "onCompleted()");
+                                }
+
+                                @Override
+                                public void onError(Throwable e) {
+                                    Log.e("MainActivity", "Error : " + e.toString());
+                                }
+
+                                @Override
+                                public void onNext(Boolean result) {
+                                    Log.d("MainActivity", "onNext()");
+                                    if(result){
+                                        Log.d("MainActivity","Register successful");
+                                    }
+                                }
+                            });
 
                     Log.i("registrationId", token);
                 }
