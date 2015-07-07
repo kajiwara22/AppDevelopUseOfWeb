@@ -39,6 +39,10 @@ public class IndexController {
         return "indexAjax";
     }
 
+    @RequestMapping(value="d3Sample",method = RequestMethod.GET)
+    public String showD3SamplePage(){
+        return "d3Sample";
+    }
     @RequestMapping(method = RequestMethod.POST)
     public String register(@Validated RecordForm recordForm,BindingResult result){
         if(result.hasErrors()){
