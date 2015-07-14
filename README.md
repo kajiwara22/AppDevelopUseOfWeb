@@ -41,6 +41,11 @@ AWSの鍵を設定しておく必要があります。
 AWS コマンドラインインターフェイスを導入後、aws configureを実行して  
 AWS Access Key ID / AWS Secret Access Key を設定しておいてください。
 
+### 円グラフを実装してみたい。
+D3.jsを用いることで実装できます。  
+以下はAngularJS用のディレクティブである[n3-charts/pie-chart](https://github.com/n3-charts/pie-chart)を用いた実装例になります。
+
+[kajiwara22/AppDevelopUseOfWeb at applyD3witnAngularJS](https://github.com/kajiwara22/AppDevelopUseOfWeb/tree/applyD3witnAngularJS)
 
 
 # Mac環境での開発環境構築
